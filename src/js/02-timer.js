@@ -33,7 +33,7 @@ for (let i = 0; i < values.length; i += 1) {
 
 
 let diferInTime = 0;
-flatpickr("#datetime-picker", options = {
+flatpickr("#datetime-picker", {
     enableTime: true,
     time_24hr: true,
     defaultDate: new Date(),
@@ -46,7 +46,6 @@ flatpickr("#datetime-picker", options = {
             startButton.disabled = true;
             return
         }
-
         startButton.disabled = false;
         setInterval(() => {
             const date = new Date();
