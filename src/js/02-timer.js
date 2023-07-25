@@ -75,7 +75,7 @@ function showTimer() {
         if (diferInTime <= 0) {
             return
         }
-        console.log(diferInTime)
+
         const result = convertMs(diferInTime);
         valueOfDays.textContent = addLeadingZero(result.days);
         valueOfHours.textContent = addLeadingZero(result.hours);
