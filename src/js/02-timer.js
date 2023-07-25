@@ -10,7 +10,7 @@ const valueOfHours = document.querySelector('[data-hours]');
 const valueOfMinutes = document.querySelector('[data-minutes]');
 const valueOfSeconds = document.querySelector('[data-seconds]');
 const values = [valueOfDays, valueOfHours, valueOfMinutes, valueOfSeconds];
-
+let selectedDate;
 const commonDiv = document.querySelector('.timer');
 const divsField = document.querySelectorAll('.field')
 
@@ -39,8 +39,8 @@ flatpickr("#datetime-picker", {
     defaultDate: new Date(),
     minuteIncrement: 1,
     onClose(selectedDates) {
-
-        if (selectedDates[0] < new Date()) {
+        selectedDate = selectedDates[0];
+        if (selectedDate < new Date()) {
             Notiflix.Notify.warning('Please choose a date in the future');
 
             startButton.disabled = true;
@@ -49,7 +49,7 @@ flatpickr("#datetime-picker", {
             startButton.disabled = false;
             setInterval(() => {
                 const date = new Date();
-                diferInTime = selectedDates[0] - date;
+                diferInTime = selectedDate - date;
             }, 1000)
         }
 
