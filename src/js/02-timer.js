@@ -45,12 +45,13 @@ flatpickr("#datetime-picker", {
 
             startButton.disabled = true;
             return
+        } else {
+            startButton.disabled = false;
+            setInterval(() => {
+                const date = new Date();
+                diferInTime = selectedDates[0] - date;
+            }, 1000)
         }
-        startButton.disabled = false;
-        setInterval(() => {
-            const date = new Date();
-            diferInTime = selectedDates[0] - date;
-        }, 1000)
     },
 });
 
