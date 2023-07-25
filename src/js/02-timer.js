@@ -40,7 +40,7 @@ flatpickr("#datetime-picker", {
     minuteIncrement: 1,
     onClose(selectedDates) {
 
-        if (selectedDates[0] < options.defaultDate) {
+        if (selectedDates[0] < new Date()) {
             Notiflix.Notify.warning('Please choose a date in the future');
 
             startButton.disabled = true;
@@ -52,6 +52,7 @@ flatpickr("#datetime-picker", {
                 diferInTime = selectedDates[0] - date;
             }, 1000)
         }
+
     },
 });
 
