@@ -10,9 +10,9 @@ function setDatesFromLocaleStorage() {
     return datesFromLocalStorage;
 }
 
-form.addEventListener('input', onSubmitClick);
+form.addEventListener('input', onInputForm);
 
-function onSubmitClick(ev) {
+function onInputForm(ev) {
     ev.preventDefault();
 
     const formData = {
@@ -25,6 +25,11 @@ function onSubmitClick(ev) {
 
 form.addEventListener('submit', (ev) => {
     ev.preventDefault();
+    const message = form.elements.message.value.trim();
+    const email = form.elements.email.value.trim();
+    if (!message || !email) {
+        return alert('All fields must be completed');
+    }
     console.log(setDatesFromLocaleStorage());
     localStorage.removeItem('feedback-form-state');
     form.reset();
